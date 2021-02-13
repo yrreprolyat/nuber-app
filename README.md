@@ -1,0 +1,189 @@
+
+
+Tests
+*******************************************************************************
+Add a driver to the database.
+
+POST
+http://localhost:3000/drivers
+
+Body:
+{
+	"name" : "Nick Mullen",
+    "availability" : true,
+    "longitude" : 99.44,
+    "latitude" : 66.22,
+    "DestLongitude" : 88.11,
+    "DestLatitude" : 69.55
+}
+
+*******************************************************************************
+Rate a driver in the database.
+
+PUT
+http://localhost:3000/riders/rateDriver/:id
+
+Body:
+{
+	"rating": 5
+}
+
+Example of returned body:
+{
+    "_id": "5cd10e0afd056d1a6a7019f3",
+    "name": "Nick Mullen",
+    "availability": true,
+    "longitude": 40.78,
+    "latitude": 55.9,
+    "DestLongitude": 60.78,
+    "DestLatitude": 25.9,
+    "totalRiders": 0,
+    "rating": 2.3333333333333335,
+    "num_rates": 18,
+    "__v": 0
+}
+
+*******************************************************************************
+Add a rider to the database.
+
+POST
+http://localhost:3000/riders
+
+Body:
+{
+	"name" : "Obama",
+	"longitude" : 40.78,
+	"latitude" : 55.90
+}
+
+*******************************************************************************
+Add a common destination for a rider.
+
+PUT
+http://localhost:3000/riders/add_common_destination/:id
+
+Body:
+{
+	"new_common_destination": "home",
+	"new_common_lat": 1.44,
+	"new_common_long": 7.33
+}
+
+*******************************************************************************
+Updates a single Rider's report rating in the database. Rider's account gets
+deleted if they receive more than 3 reports.
+
+PUT
+http://localhost:3000/riders/report/:id
+
+Body:
+N/A
+
+*******************************************************************************
+Update driver's position
+
+PUT
+http://localhost:3000/drivers/position/:id
+
+Body:
+{
+	"longitude" : 10,
+	"latitude": 10
+}
+
+*******************************************************************************
+Update driver's availability
+
+PUT
+http://localhost:3000/drivers/availability/:id
+
+Body:
+{
+	"availability" : true
+}
+
+*******************************************************************************
+Delete a rider from database
+
+DELETE
+http://localhost:3000/riders/:id
+
+Body:
+N/A
+
+*******************************************************************************
+Delete a driver from database
+
+DELETE
+http://localhost:3000/drivers/:id
+
+Body:
+N/A
+
+*******************************************************************************
+Add an Admin to database
+
+POST
+http://localhost:3000/admins
+
+Body:
+{
+	"name": "Thanos"
+}
+
+*******************************************************************************
+Remove an Admin from database
+
+DELETE
+http://localhost:3000/admins/:id
+
+Body:
+N/A
+
+*******************************************************************************
+Rider can select a Driver given valid Driver ID
+
+PUT
+http://localhost:3000/riders/selectDriver/:id
+
+Body:
+{
+	"id": "5cd312f5e2f6c24250dc5ec8"
+}
+
+*******************************************************************************
+Driver can select a Rider given valid Rider ID
+
+PUT
+http://localhost:3000/drivers/selectRider/:id
+
+Body:
+{
+	"id": "5cd32c675246ec186833d307"
+}
+
+*******************************************************************************
+Update driver's destination
+
+PUT
+http://localhost:3000/drivers/destination/:id
+
+Body:
+{
+	"DestLongitude" : 100,
+	"DestLatitude": 100
+}
+
+*******************************************************************************
+Update riders's location
+
+PUT
+http://localhost:3000/riders/location/:id
+
+Body:
+{
+	"longitude" : 14,
+	"latitude": 30
+}
+
+*******************************************************************************
