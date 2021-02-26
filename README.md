@@ -1,189 +1,72 @@
 
+## Project Stack
+---
+### Front-end
+- React
+- TypeScript
+- Apollo
+- Styled Component
+- Google Map API
 
-Tests
-*******************************************************************************
-Add a driver to the database.
+### Back-end
+- Node.js
+- TypeScript
+- Graphql-Yoga
+- PostgreSQL
+- TypeORM
 
-POST
-http://localhost:3000/drivers
 
-Body:
-{
-	"name" : "Nick Mullen",
-    "availability" : true,
-    "longitude" : 99.44,
-    "latitude" : 66.22,
-    "DestLongitude" : 88.11,
-    "DestLatitude" : 69.55
-}
+## Running on Your machine
+---
+These instructions will get you a copy of the project up and running on your local machine for development or testing purpose.
 
-*******************************************************************************
-Rate a driver in the database.
+### Prerequistes
+- Node.js v10
+- yarn
+- PostgreSQL
 
-PUT
-http://localhost:3000/riders/rateDriver/:id
+## Run on your machine
 
-Body:
-{
-	"rating": 5
-}
+If you want to run nuber on your machine, please check [Guidelines document](GUIDELINES.md).
 
-Example of returned body:
-{
-    "_id": "5cd10e0afd056d1a6a7019f3",
-    "name": "Nick Mullen",
-    "availability": true,
-    "longitude": 40.78,
-    "latitude": 55.9,
-    "DestLongitude": 60.78,
-    "DestLatitude": 25.9,
-    "totalRiders": 0,
-    "rating": 2.3333333333333335,
-    "num_rates": 18,
-    "__v": 0
-}
 
-*******************************************************************************
-Add a rider to the database.
+### Public Resolvers:
 
-POST
-http://localhost:3000/riders
+- [X] Sigin In / Sign Up with Facebook
+- [X] Sign In with Email
+- [X] Start Phone Number Verification
+- [X] Complete Phone Number Verification
+- [X] Sign Up with Email
+--- 
 
-Body:
-{
-	"name" : "Obama",
-	"longitude" : 40.78,
-	"latitude" : 55.90
-}
+### Authentication:
 
-*******************************************************************************
-Add a common destination for a rider.
+- [X] Generate JWT
+- [X] Verify JWT
 
-PUT
-http://localhost:3000/riders/add_common_destination/:id
+---
 
-Body:
-{
-	"new_common_destination": "home",
-	"new_common_lat": 1.44,
-	"new_common_long": 7.33
-}
+### Private Resolvers:
 
-*******************************************************************************
-Updates a single Rider's report rating in the database. Rider's account gets
-deleted if they receive more than 3 reports.
+- [X] Verify Email
+- [X] Get my Profile
+- [X] Update my Profile
+- [X] Toggle Driving Mode
+- [X] Report Location / Orientation
+- [X] Add Place
+- [X] Edit Place
+- [X] Get My Place
+- [X] Delete Place
+- [X] See Nearby Drivers
+- [X] Subscribe to Nearby Drivers
+- [X] Request a Ride
+- [X] Get Nearby Ride Requests
+- [X] Subscribe to Nearby Ride Requests
+- [X] Update Ride Status
+- [X] Get Ride
+- [X] Subscribe to Ride Status
+- [X] Create a Chat Room
+- [X] Get Chat Room Messages
+- [X] Subscribe to Chat Room Messages
+- [X] Send a Chat Message
 
-PUT
-http://localhost:3000/riders/report/:id
-
-Body:
-N/A
-
-*******************************************************************************
-Update driver's position
-
-PUT
-http://localhost:3000/drivers/position/:id
-
-Body:
-{
-	"longitude" : 10,
-	"latitude": 10
-}
-
-*******************************************************************************
-Update driver's availability
-
-PUT
-http://localhost:3000/drivers/availability/:id
-
-Body:
-{
-	"availability" : true
-}
-
-*******************************************************************************
-Delete a rider from database
-
-DELETE
-http://localhost:3000/riders/:id
-
-Body:
-N/A
-
-*******************************************************************************
-Delete a driver from database
-
-DELETE
-http://localhost:3000/drivers/:id
-
-Body:
-N/A
-
-*******************************************************************************
-Add an Admin to database
-
-POST
-http://localhost:3000/admins
-
-Body:
-{
-	"name": "Thanos"
-}
-
-*******************************************************************************
-Remove an Admin from database
-
-DELETE
-http://localhost:3000/admins/:id
-
-Body:
-N/A
-
-*******************************************************************************
-Rider can select a Driver given valid Driver ID
-
-PUT
-http://localhost:3000/riders/selectDriver/:id
-
-Body:
-{
-	"id": "5cd312f5e2f6c24250dc5ec8"
-}
-
-*******************************************************************************
-Driver can select a Rider given valid Rider ID
-
-PUT
-http://localhost:3000/drivers/selectRider/:id
-
-Body:
-{
-	"id": "5cd32c675246ec186833d307"
-}
-
-*******************************************************************************
-Update driver's destination
-
-PUT
-http://localhost:3000/drivers/destination/:id
-
-Body:
-{
-	"DestLongitude" : 100,
-	"DestLatitude": 100
-}
-
-*******************************************************************************
-Update riders's location
-
-PUT
-http://localhost:3000/riders/location/:id
-
-Body:
-{
-	"longitude" : 14,
-	"latitude": 30
-}
-
-*******************************************************************************
